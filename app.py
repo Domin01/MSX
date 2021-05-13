@@ -14,12 +14,9 @@ def inicio():
 def contact():
     return render_template("contact.html")
 
-@app.route('/services/')
-def services():
-    return render_template("services.html")
-
-#La plantilla base tendrá al menos dos bloques: uno para indicar el título y otro para poner el 
-#contenido.
+@app.route('/juegos/')
+def juegos():
+    return render_template("juegos.html")
 
 #La página principal tendrá una imagen con el logotipo MSX al pulsar sobre está imagen  
 #nos llevará a a página /juegos.
