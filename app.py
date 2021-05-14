@@ -1,4 +1,4 @@
-from flask import Flask, render_template,abort,json
+from flask import Flask, render_template,abort,json,request
 import os
 app = Flask(__name__)
 
@@ -10,27 +10,21 @@ datos = json.load(f)
 def inicio():
 	return render_template("index.html")
 
-@app.route('/listajuegos/')
+@app.route('/listajuegos',methods=["POST"])
 def listajuegos():
-    return render_template("listajuegos.html")
+	formulario=request.form.get("informacion")
+	return render_template("listajuegos.html",formulario=formulario)
 
-@app.route('/juegos/')
+@app.route('/juegos',methods=["GET"])
 def juegos():
     return render_template("juegos.html")
 
-@app.route('/categorias/<tipo>')
-def categoria(tipo):
-    listacategorias=[]
-    for cate in datos:
-        for lista in cate.get("categories"):
-            if lista==tipo:
-                listacategorias.append(cate)
-    return render_template("categorias.html",categoria=tipo,lista_categorias=listacategorias,lista_libros=datos)
 
-#La página /juegos nos mostrara un buscador, para ello pon un formulario con un cuadro de 
-#texto donde puedas poner el nombre de un juego que quieres buscar. Cuando pulséis el botón de 
-#buscar enviará la información a la página /listajuegos. El formulario enviará los datos con el 
-#método POST.
+
+app.run(debug=True)
+
+#Cuando pulséis el botón debuscar enviará la información a la página /listajuegos. 
+#El formulario enviará los datos con el método POST.
 
 #En la página /listajuegos (qué sólo se puede acceder por el método POST) aparecerán los juegos 
 #cuyo nombre empiezan por la cadena que hemos añadido al formulario. Si no hemos indicado ninguna 
@@ -48,5 +42,3 @@ def categoria(tipo):
 #todos los datos del juego que tenga ese identificador. Si el identificador no existe devolverá un 404. Tendrá un enlace que me devuelve a la página /juegos.
 
 #La aplicación hay que desplegarla en heroku
-
-app.run(debug=True)
