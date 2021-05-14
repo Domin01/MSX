@@ -10,16 +10,22 @@ datos = json.load(f)
 def inicio():
 	return render_template("index.html")
 
-@app.route('/contact/')
-def contact():
-    return render_template("contact.html")
+@app.route('/listajuegos/')
+def listajuegos():
+    return render_template("listajuegos.html")
 
 @app.route('/juegos/')
 def juegos():
     return render_template("juegos.html")
 
-#La página principal tendrá una imagen con el logotipo MSX al pulsar sobre está imagen  
-#nos llevará a a página /juegos.
+@app.route('/categorias/<tipo>')
+def categoria(tipo):
+    listacategorias=[]
+    for cate in datos:
+        for lista in cate.get("categories"):
+            if lista==tipo:
+                listacategorias.append(cate)
+    return render_template("categorias.html",categoria=tipo,lista_categorias=listacategorias,lista_libros=datos)
 
 #La página /juegos nos mostrara un buscador, para ello pon un formulario con un cuadro de 
 #texto donde puedas poner el nombre de un juego que quieres buscar. Cuando pulséis el botón de 

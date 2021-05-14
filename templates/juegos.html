@@ -4,13 +4,25 @@
     <h1><a href="#">SERVICIOS<strong></strong><span>PROYECTO MSX</span></a></h1>
 {%endblock%}
 {%block imagen%}
-    <img src="{{ url_for('static',filename='images/piechart.png') }}" alt="eco green" />
+    <img src="{{ url_for('static',filename='images/lupa.png') }}" width="100%" height="100%" alt="eco green" />
 {%endblock%}
 {%block titulo3%}
-    TITULO 3
+    BUSCADOR
 {%endblock%}
 {%block contenido%}
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a tellus risus, eu faucibus risus. In blandit leo justo, sit amet tincidunt ipsum. Duis lacinia magna vel nibh tinci dunt accumsan. Proin eget nibh libero.</p>
-    <p><span>It leo varius. Integer commodo mi gravutate ut mollis tortor imperdiet. nisi...</span></p>
-    <div class="mid_more"><a href="#">DETALLES</a></div>
+    <div class="cleaner_h50"></div>
+
+    <div id="contact_form">
+
+        <form method="post" name="contact" action="#">
+            <label for="author">Buscador</label> 
+            <input type="text" class="required input_field" required/>
+            <div class="cleaner_h10"></div>
+            <input type="submit" class="submit_btn" value="Enviar" />
+            <input type="reset" class="submit_btn" value="Resetar" />
+        
+        </form>
+
+    </div>
+
 {%endblock%}

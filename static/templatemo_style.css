@@ -431,6 +431,8 @@ cite span { color: #666600; }
 #templatemo_footer_wrapper {
 	clear: both;
 	width: 100%;
+	position: absolute;
+  	bottom: 0;
 	background: #737855 url(images/templatemo_footer_top.png) top repeat-x;
 }
 
