@@ -36,13 +36,6 @@ def juego(identificador):
 app.run(debug=True)
 
 
-#En la página /listajuegos (qué sólo se puede acceder por el método POST) aparecerán los juegos 
-#cuyo nombre empiezan por la cadena que hemos añadido al formulario. Si no hemos indicado ninguna 
-#cadena mostrará todos los juegos.
-
-#La página /listajuegos mostrará una tabla generada dinámicamente a partir de los datos del 
-#fichero msx.json y la búsqueda que se haya realizado.
-
 #La tabla tendrá tres columnas: en la primera aparecerá el nombre, en la segunda el desarrollador 
 #y en la tercera habrá un enlace con la palabra “Detalle” que me llevará a la página del juego 
 #con la ruta /juego/<identificador>.
