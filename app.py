@@ -10,21 +10,31 @@ datos = json.load(f)
 def inicio():
 	return render_template("index.html")
 
-@app.route('/listajuegos',methods=["POST"])
-def listajuegos():
-	formulario=request.form.get("informacion")
-	return render_template("listajuegos.html",formulario=formulario)
-
 @app.route('/juegos',methods=["GET"])
 def juegos():
     return render_template("juegos.html")
 
+@app.route('/listajuegos',methods=["POST"])
+def listajuegos():
+  listajuegos=[]
+  formulario=request.form.get("informacion")
+  for a in datos:
+  	if str(formulario) == "" or str(a["nombre"]).startswith(formulario) :
+	   listajuegos.append(a)
+  return render_template("listajuegos.html",listajuegos=listajuegos)
+
+@app.route('/juego/<identificador>')
+def juego(identificador):
+  lista=[]
+  for b in datos:
+    if int(b.get("id"))==int(identificador):
+	    lista.append(b)
+
+  return render_template("juego.html",lista=lista)
 
 
 app.run(debug=True)
 
-#Cuando pulséis el botón debuscar enviará la información a la página /listajuegos. 
-#El formulario enviará los datos con el método POST.
 
 #En la página /listajuegos (qué sólo se puede acceder por el método POST) aparecerán los juegos 
 #cuyo nombre empiezan por la cadena que hemos añadido al formulario. Si no hemos indicado ninguna 
