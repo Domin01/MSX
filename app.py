@@ -41,20 +41,3 @@ app.run(debug=True)
 
 
 #La aplicación hay que desplegarla en heroku
-
-#Realizar la búsqueda utilizando una sola ruta: Es decir que en la página /juegos este el 
-# formulario de búsqueda y la lista de juegos seleccionado. La información del formulario 
-# se enviará a la misma página. No existirá la página /listajuegos.
-
-#Como el protocolo HTTP no tiene estado, no es capaz de acordarse de los datos anteriores, 
-#por lo tanto cada vez que hagáis una búsqueda aparecerá la lista de juegos pero el formulario 
-# estará vacío, no recuerda lo que pusimos. Modifica el programa para que aparezca en el formulario 
-# la cadena que habías introducido en la búsqueda (Pista: tendrá que utilizar el atributo value del 
-# elemento input).
-
-#Añade otro criterio de búsqueda, es decir vas a poder buscar por nombre y por categoría. 
-#Para buscar por categoría vas a generar dinámicamente una lista desplegable (elemento select) 
-# en el formulario con las categorías de los juegos). Por lo tanto podremos buscar un juego que 
-# empiece por una cadena de una determinada categoría.
-#De la misma forma que en el apartado 1 programar la lista desplegable para que recuerde la opción 
-# elegida en la búsqueda. (Pista: Usar el atributo selected del elemento option del elemento select)
