@@ -37,7 +37,5 @@ def juego(identificador):
   else:
     abort(404)
 
-app.run(debug=True)
-
-
-#La aplicación hay que desplegarla en heroku
+port=os.environ["PORT"]
+app.run('0.0.0.0',int(port),debug=True)
